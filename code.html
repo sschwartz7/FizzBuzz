@@ -24,39 +24,40 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" >
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class=" container-fluid">
-            <a class="navbar-brand" href="index.html">
-                &nbsp;<img src="/img/ssmark.svg" height="30" alt="developer logo" />
-                &nbsp;FizzBuzz</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/app.html">The App</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/sschwartz7/Portfolio">The Repo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://schwartzwork.netlify.app/">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://schwartzwork.netlify.app/">Blog</a>
-                    </li>
-                </ul>
-            </div>
+                <a class="navbar-brand" href="index.html">
+                    &nbsp;<img src="/img/ssmark.svg" height="30" alt="developer logo" />
+                    &nbsp;FizzBuzz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/app.html">The App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target=”_blank” href="https://github.com/sschwartz7/Portfolio">The
+                                Repo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target=”_blank” href="https://schwartzwork.netlify.app/">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target=”_blank” href="https://schwartzwork.netlify.app/">Blog</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -68,7 +69,7 @@
                     <code class="language-js">
                         //get numbers from input
                         //entry point
-                        //controller
+                        //Controller
                         function getValues() {
                         
                             let fizz = document.getElementById('Fizz').value;
@@ -85,7 +86,7 @@
                                         backdrop: false,
                                         title: 'Error',
                                         icon: 'error',
-                                        text: "Both values must be numbers"
+                                        text: "All values must be numbers"
                                     }
                                 );
                             } else if (isNaN(fizz) == true || isNaN(buzz) == true) {
@@ -94,7 +95,7 @@
                                         backdrop: false,
                                         title: 'Error',
                                         icon: 'error',
-                                        text: "Both values must be numbers"
+                                        text: "All values must be numbers"
                                     }
                                 );
                             } else {
@@ -142,25 +143,33 @@
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>In this code there are three functions. The 'getValues' function first initializes the start variable
-                    and sets it equal to the input from the user using the getElementById method. It then does the same
-                    for the end variable.
-                    It then takes both variables and changes each from a string to a number. The code then calls the
-                    generateNumbers function passing through the start and end variable. It sets the returned value to
-                    the newly intialized range variable. Following this it runs the displayNumbers function passing
-                    through the range variable.</p>
-                <p>The generateNumbers function first creates an array named range. It then runs parameters through a
-                    series of else if statements. The first statement checks to see if either parameter is a number, if
-                    both are it moves onto the next if statemnet, which checks to see if the start and end values are
-                    the same. If it passes this if statment it moves onto the next to see if the start value is greater
-                    than the end value. Following this it checks to see if the range is greater than or equal to 100. If
-                    any of these tests are failed it sends a Sweet Alert explaining the issue that arose. If all tests
-                    are passed it runs a for loop setting the variable num to the variable start, and running the code
-                    for as long as the num is less than or equal to the end variable, incrimenting by one every time.
-                    Everytime it runs this code it add the num value to the end of the array range. Once this is
-                    finished it returns the array range.
+                <p>The program creates a FizzBuzz sequence based on user import and displays it on a webpage with different styles for each number.</p>
+                <p>The getValues function is the entry point for the program and serves as the controller. It first
+                    retrieves the values of three elements from the HTML page with IDs 'Fizz', 'Buzz', and 'Length',
+                    representing the Fizz number, Buzz number, and the desired length of the FizzBuzz sequence,
+                    respectively.
+                    It then converts these values to numbers using the Number() function. If any of the values is not a
+                    valid number (e.g., if the user enters non-numeric characters), it displays an error message using
+                    the Swal library (SweetAlert), which shows a pop-up alert with the error message. If all values are
+                    valid numbers, it calls the generateFizzBuzz() function.</p>
+                <p>The generateFizzBuzz function takes the numlist parameter (which represents the desired length of the
+                    FizzBuzz sequence) and generates the sequence from 1 to numlist. However, if numlist is greater than
+                    100, it shows an error message using Swal, indicating that the length must be 100 or under.
                 </p>
-                <p> The displayNumbers funciton takes an array named range
+                <p>The displayFizzBuzz function takes three parameters: range (the generated FizzBuzz sequence), fizz (the Fizz
+                    number), and buzz (the Buzz number). It then loops through each number in the range array and
+                    generates the corresponding table row for the HTML table.
+                    If the number is divisible by both fizz and buzz, it creates a table row with the class "table-dark"
+                    and the content "FizzBuzz".
+                    If the number is only divisible by fizz, it creates a table row with the class "table-primary" and
+                    the content "Fizz".
+                    If the number is only divisible by buzz, it creates a table row with the class "table-danger" and
+                    the content "Buzz".
+                    If the number is not divisible by either fizz or buzz, it creates a regular table row with the
+                    number itself as the content.
+                    After processing all numbers in the range, the function sets the inner HTML of an element with the
+                    ID 'results' to the generated tableHTML, effectively displaying the FizzBuzz sequence on the
+                    webpage.
                 </p>
 
             </div>
