@@ -121,14 +121,14 @@
                                 let className;
                                 let tableRowHTML;
                                 if (range[index] % fizz == 0 && range[index] % buzz == 0) {
-                                    tableRowHTML = `&lt;tr class="table-dark">&lt;td>FizzBuzz&lt;/tr>&lt;/td>`;
+                                    tableRowHTML = `&lt;tr class="both">&lt;td>FizzBuzz&lt;/tr>&lt;/td>`;
                                     tableHTML = tableHTML + tableRowHTML;
                                 }
                                 else if (range[index] % fizz == 0) {
-                                    tableRowHTML = `&lt;tr class="table-primary">&lt;td>Fizz&lt;/tr>&lt;/td>`;
+                                    tableRowHTML = `&lt;tr class="fizz">&lt;td>Fizz&lt;/tr>&lt;/td>`;
                                     tableHTML = tableHTML + tableRowHTML;
                                 } else if (range[index] % buzz == 0) {
-                                    tableRowHTML = `&lt;tr class="table-danger">&lt;td>Buzz&lt;/tr>&lt;/td>`;
+                                    tableRowHTML = `&lt;tr class="buzz">&lt;td>Buzz&lt;/tr>&lt;/td>`;
                                     tableHTML = tableHTML + tableRowHTML;
                                 } else {
                                     tableRowHTML = `&lt;tr>&lt;td>${range[index]}&lt;/tr>&lt;/td>`;
@@ -159,11 +159,11 @@
                 <p>The displayFizzBuzz function takes three parameters: range (the generated FizzBuzz sequence), fizz (the Fizz
                     number), and buzz (the Buzz number). It then loops through each number in the range array and
                     generates the corresponding table row for the HTML table.
-                    If the number is divisible by both fizz and buzz, it creates a table row with the class "table-dark"
+                    If the number is divisible by both fizz and buzz, it creates a table row with the class "both"
                     and the content "FizzBuzz".
-                    If the number is only divisible by fizz, it creates a table row with the class "table-primary" and
+                    If the number is only divisible by fizz, it creates a table row with the class "fizz" and
                     the content "Fizz".
-                    If the number is only divisible by buzz, it creates a table row with the class "table-danger" and
+                    If the number is only divisible by buzz, it creates a table row with the class "buzz" and
                     the content "Buzz".
                     If the number is not divisible by either fizz or buzz, it creates a regular table row with the
                     number itself as the content.
