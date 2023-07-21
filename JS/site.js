@@ -3,17 +3,15 @@
 //controller
 function getValues() {
 
-    let start = document.getElementById('startValue').value;
-    let end = document.getElementById('endValue').value;
-    start = Number(start);
-    end = Number(end);
-    let range = generateNumbers(start, end);
-    displayNumbers(range);
-}
-//runs logic
-function generateNumbers(start, end) {
-    let range = [];
-    if (isNaN(start) == true || isNaN(end) == true) {
+    let fizz = document.getElementById('Fizz').value;
+    let buzz = document.getElementById('Buzz').value;
+    let length = document.getElementById('Length').value;
+
+    length = Number(length)
+    fizz = Number(fizz);
+    buzz = Number(buzz);
+    let range;
+    if (isNaN(length) == true) {
         Swal.fire(
             {
                 backdrop: false,
@@ -22,55 +20,51 @@ function generateNumbers(start, end) {
                 text: "Both values must be numbers"
             }
         );
-    } else if (start = end) {
+    } else if (isNaN(fizz) == true || isNaN(buzz) == true) {
         Swal.fire(
             {
                 backdrop: false,
                 title: 'Error',
                 icon: 'error',
-                text: "The 'Start Value' and 'End Value' cannot be the same number"
-            }
-        );
-    } else if (start > end) {
-        Swal.fire(
-            {
-                backdrop: false,
-                title: 'Error',
-                icon: 'error',
-                text: "The number in the 'Start Value' box needs to be lower than the 'End Value' number"
-            }
-        );
-    } else if (end - start >= 100) {
-        Swal.fire(
-            {
-                backdrop: false,
-                title: 'Error',
-                icon: 'error',
-                text: 'The number range is too long'
+                text: "Both values must be numbers"
             }
         );
     } else {
-        for (let num = start; num <= end; num++) {
-            range.push(num);
-        }
-        return range;
+        range = generateFizzBuzz(length);
     }
+    displayFizzBuzz(range, fizz, buzz);
+}
+//runs logic
+function generateFizzBuzz(length) {
+    let range = [];
+    for (let num = 1; num <= length; num++) {
+        range.push(num);
+    }
+    return range
 
 }
 
 //displays onto page
 //view function
-function displayNumbers(range) {
+function displayFizzBuzz(range, fizz, buzz) {
     let tableHTML;
     for (let index = 0; index < range.length; index++) {
         let className;
-        if (range[index] % 2 == 0) {
-            className = 'even';
-        } else {
-            className = 'odd';
+        let tableRowHTML;
+        if (range[index] % fizz == 0 && range[index] % buzz == 0) {
+            tableRowHTML = `<tr class="table-dark"><td>FizzBuzz</tr></td>`;
+            tableHTML = tableHTML + tableRowHTML;
         }
-        let tableRowHTML = `<tr><td class="${className}">${range[index]}</tr></td>`;
-        tableHTML = tableHTML + tableRowHTML;
+        else if (range[index] % fizz == 0) {
+            tableRowHTML = `<tr class="table-primary"><td>Fizz</tr></td>`;
+            tableHTML = tableHTML + tableRowHTML;
+        } else if (range[index] % buzz == 0) {
+            tableRowHTML = `<tr class="table-danger"><td>Buzz</tr></td>`;
+            tableHTML = tableHTML + tableRowHTML;
+        } else {
+            tableRowHTML = `<tr><td>${range[index]}</tr></td>`;
+            tableHTML = tableHTML + tableRowHTML;
+        }
     }
     document.getElementById('results').innerHTML = tableHTML;
 }

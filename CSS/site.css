@@ -82,7 +82,15 @@ footer {
     padding-left: .5rem;
 }
 
-.even {
+.fizz {
     font-weight: bold;
-    
+    background-color:#5BCEFA;
+}
+.buzz {
+    font-weight: bold;
+    background-color:#F5A9B8;
+}
+.both {
+    font-weight: bold;
+    background-color: var(--ss-theme-core);
 }
