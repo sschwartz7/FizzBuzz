@@ -84,11 +84,13 @@ footer {
 
 .fizz {
     font-weight: bold;
-    background-color:#5BCEFA !important;
+    color:var(--ss-light-color) !important;
+    background-color:var(--ss-theme-850) !important;
 }
 .buzz {
     font-weight: bold;
-    background-color:#F5A9B8 !important;
+    color:var(--ss-light-color) !important;
+    background-color:var(--ss-theme-900) !important;
 }
 .both {
     font-weight: bold;
