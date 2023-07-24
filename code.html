@@ -69,7 +69,7 @@
                     <code class="language-js">
                         //get numbers from input
                         //entry point
-                        //Controller
+                        //controller
                         function getValues() {
                         
                             let fizz = document.getElementById('Fizz').value;
@@ -79,8 +79,22 @@
                             length = Number(length)
                             fizz = Number(fizz);
                             buzz = Number(buzz);
-                            let range;
-                            if (isNaN(length) == true) {
+                            let range = generateFizzBuzz(fizz, buzz, length);
+                            displayFizzBuzz(range);
+                        }
+                        //runs logic
+                        function generateFizzBuzz(fizz, buzz, numlist) {
+                            let range = [];
+                            if (numlist > 100) {
+                                Swal.fire(
+                                    {
+                                        backdrop: false,
+                                        title: 'Error',
+                                        icon: 'error',
+                                        text: "Length must be 100 or under"
+                                    }
+                                );
+                            } else if (isNaN(numlist) == true) {
                                 Swal.fire(
                                     {
                                         backdrop: false,
@@ -99,41 +113,41 @@
                                     }
                                 );
                             } else {
-                                range = generateFizzBuzz(length);
+                                for (let index = 1; index < numlist; index++) {
+                                    if (index % fizz == 0 && index % buzz == 0) {
+                                        range.push("fizzbuzz");
+                                    }
+                                    else if (index % fizz == 0) {
+                                        range.push("fizz");
+                                    } else if (index % buzz == 0) {
+                                        range.push("buzz");
+                                    } else {
+                                        range.push(index);
+                                    }
+                                }
+                                return range;
                             }
-                            displayFizzBuzz(range, fizz, buzz);
                         }
-                        //runs logic
-                        function generateFizzBuzz(length) {
-                            let range = [];
-                            for (let num = 1; num <= length; num++) {
-                                range.push(num);
-                            }
-                            return range
                         
-                        }
                         
                         //displays onto page
                         //view function
-                        function displayFizzBuzz(range, fizz, buzz) {
-                            let tableHTML;
+                        function displayFizzBuzz(range) {
+                            let tableHTML = "";
+                        
                             for (let index = 0; index < range.length; index++) {
-                                let className;
                                 let tableRowHTML;
-                                if (range[index] % fizz == 0 && range[index] % buzz == 0) {
-                                    tableRowHTML = `&lt;tr class="both">&lt;td>FizzBuzz&lt;/tr>&lt;/td>`;
-                                    tableHTML = tableHTML + tableRowHTML;
+                                if (range[index] == "fizzbuzz") {
+                                    tableRowHTML = `&lt;tr >&lt;td class="both">FizzBuzz&lt;/tr>&lt;/td>`;
                                 }
-                                else if (range[index] % fizz == 0) {
-                                    tableRowHTML = `&lt;tr class="fizz">&lt;td>Fizz&lt;/tr>&lt;/td>`;
-                                    tableHTML = tableHTML + tableRowHTML;
-                                } else if (range[index] % buzz == 0) {
-                                    tableRowHTML = `&lt;tr class="buzz">&lt;td>Buzz&lt;/tr>&lt;/td>`;
-                                    tableHTML = tableHTML + tableRowHTML;
+                                else if (range[index] == "fizz") {
+                                    tableRowHTML = `&lt;tr >&lt;td class="fizz">Fizz&lt;/tr>&lt;/td>`;
+                                } else if (range[index] == 'buzz') {
+                                    tableRowHTML = `&lt;tr >&lt;td class="buzz">Buzz&lt;/tr>&lt;/td>`;
                                 } else {
                                     tableRowHTML = `&lt;tr>&lt;td>${range[index]}&lt;/tr>&lt;/td>`;
-                                    tableHTML = tableHTML + tableRowHTML;
                                 }
+                                tableHTML = tableHTML + tableRowHTML;
                             }
                             document.getElementById('results').innerHTML = tableHTML;
                         }
