@@ -51,10 +51,11 @@ footer {
     background-color: var(--ss-theme-900);
 }
 
-.footer{
+.footer {
     color: var(--ss-theme-300);
 }
-.nav-link{
+
+.nav-link {
     color: var(--ss-theme-300);
 }
 
@@ -73,10 +74,12 @@ footer {
 .app-logo {
     max-width: 400;
 }
-.checklist i{
+
+.checklist i {
     color: var(--ss-theme-accent2);
     padding-right: .5rem;
 }
+
 .devIcons {
     font-size: 4rem;
     padding-left: .5rem;
@@ -84,16 +87,18 @@ footer {
 
 .fizz {
     font-weight: bold;
-    color:var(--ss-light-color) !important;
-    background-color:var(--ss-theme-850) !important;
+    color: var(--ss-light-color) !important;
+    background-color: var(--ss-theme-700) !important;
 }
+
 .buzz {
     font-weight: bold;
-    color:var(--ss-light-color) !important;
-    background-color:var(--ss-theme-900) !important;
+    color: var(--ss-light-color) !important;
+    background-color: var(--ss-theme-900) !important;
 }
+
 .both {
     font-weight: bold;
-    color:var(--ss-light-color) !important;
+    color: var(--ss-light-color) !important;
     background-color: var(--ss-theme-core) !important;
 }

@@ -59,24 +59,21 @@ function generateFizzBuzz(numlist) {
 //displays onto page
 //view function
 function displayFizzBuzz(range, fizz, buzz) {
-    let tableHTML="";
+    let tableHTML = "";
 
-    for (let index = 0; index<range.length; index++) {
+    for (let index = 0; index < range.length; index++) {
         let tableRowHTML;
         if (range[index] % fizz == 0 && range[index] % buzz == 0) {
             tableRowHTML = `<tr ><td class="both">FizzBuzz</tr></td>`;
-            tableHTML = tableHTML + tableRowHTML;
         }
         else if (range[index] % fizz == 0) {
             tableRowHTML = `<tr ><td class="fizz">Fizz</tr></td>`;
-            tableHTML = tableHTML + tableRowHTML;
         } else if (range[index] % buzz == 0) {
             tableRowHTML = `<tr ><td class="buzz">Buzz</tr></td>`;
-            tableHTML = tableHTML + tableRowHTML;
         } else {
             tableRowHTML = `<tr><td>${range[index]}</tr></td>`;
-            tableHTML = tableHTML + tableRowHTML;
         }
+        tableHTML = tableHTML + tableRowHTML;
     }
     document.getElementById('results').innerHTML = tableHTML;
 }
