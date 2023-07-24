@@ -7,34 +7,16 @@ function getValues() {
     let buzz = document.getElementById('Buzz').value;
     let length = document.getElementById('Length').value;
 
-    length = Number(length)
-    fizz = Number(fizz);
-    buzz = Number(buzz);
+    length = Number(length);
+    fizz = Number(fizz);//will cut off decimals 
+    buzz = parseInt(buzz);//will round up decimas
     let range = generateFizzBuzz(fizz, buzz, length);
     displayFizzBuzz(range);
 }
 //runs logic
 function generateFizzBuzz(fizz, buzz, numlist) {
     let range = [];
-    if (numlist > 100) {
-        Swal.fire(
-            {
-                backdrop: false,
-                title: 'Error',
-                icon: 'error',
-                text: "Length must be 100 or under"
-            }
-        );
-    } else if (isNaN(numlist) == true) {
-        Swal.fire(
-            {
-                backdrop: false,
-                title: 'Error',
-                icon: 'error',
-                text: "All values must be numbers"
-            }
-        );
-    } else if (isNaN(fizz) == true || isNaN(buzz) == true) {
+    if (Number.isInteger(fizz) && Number.isInteger(buzz) && Number.isInteger(numlist) && numlist > 100) {
         Swal.fire(
             {
                 backdrop: false,
