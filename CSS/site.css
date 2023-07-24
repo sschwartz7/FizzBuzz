@@ -94,10 +94,10 @@ footer {
 .buzz {
     font-weight: bold;
     color: var(--ss-light-color) !important;
-    background-color: var(--ss-theme-900) !important;
+    background-color: var(--ss-theme-850) !important;
 }
 
-.both {
+.fizzbuzz {
     font-weight: bold;
     color: var(--ss-light-color) !important;
     background-color: var(--ss-theme-core) !important;

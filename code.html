@@ -136,21 +136,12 @@
                             let tableHTML = "";
                         
                             for (let index = 0; index < range.length; index++) {
-                                let tableRowHTML;
-                                if (range[index] == "fizzbuzz") {
-                                    tableRowHTML = `&lt;tr >&lt;td class="both">FizzBuzz&lt;/tr>&lt;/td>`;
-                                }
-                                else if (range[index] == "fizz") {
-                                    tableRowHTML = `&lt;tr >&lt;td class="fizz">Fizz&lt;/tr>&lt;/td>`;
-                                } else if (range[index] == 'buzz') {
-                                    tableRowHTML = `&lt;tr >&lt;td class="buzz">Buzz&lt;/tr>&lt;/td>`;
-                                } else {
-                                    tableRowHTML = `&lt;tr>&lt;td>${range[index]}&lt;/tr>&lt;/td>`;
-                                }
-                                tableHTML = tableHTML + tableRowHTML;
+                                tableHTML += `&lt;tr>&lt;td class="${range[index]}">${range[index]}&lt;/tr>&lt;/td>`;
                             }
+                        
                             document.getElementById('results').innerHTML = tableHTML;
                         }
+                        
                         
                         
                     </code>

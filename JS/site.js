@@ -67,18 +67,8 @@ function displayFizzBuzz(range) {
     let tableHTML = "";
 
     for (let index = 0; index < range.length; index++) {
-        let tableRowHTML;
-        if (range[index] == "fizzbuzz") {
-            tableRowHTML = `<tr ><td class="both">FizzBuzz</tr></td>`;
-        }
-        else if (range[index] == "fizz") {
-            tableRowHTML = `<tr ><td class="fizz">Fizz</tr></td>`;
-        } else if (range[index] == 'buzz') {
-            tableRowHTML = `<tr ><td class="buzz">Buzz</tr></td>`;
-        } else {
-            tableRowHTML = `<tr><td>${range[index]}</tr></td>`;
-        }
-        tableHTML = tableHTML + tableRowHTML;
+        tableHTML += `<tr><td class="${range[index]}">${range[index]}</tr></td>`;
     }
+
     document.getElementById('results').innerHTML = tableHTML;
 }
